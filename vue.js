@@ -14,7 +14,6 @@ const App = {
         {title: 'Composition', text: 'Одним из наиболее важных обновлений в Vue 3 является появление альтернативного синтаксиса Composition API. В этом блоке вы узнаете все, чтобы полностью пользоваться данными синтаксисом на практических примерах. Помимо этого вы узнаете как работать совместно с Vue Router и Vuex.'},
       ],
       finished: false,
-      startOver: false
     }
   },
   methods: {
@@ -44,6 +43,14 @@ const App = {
       // когда нажимаем на определенный шаг
     }
   },
+  computed: {
+    isDisabled() {
+      return this.activeIndex === 0
+    },
+    isLastStep() {
+      return this.activeIndex === this.steps.length - 1
+    }
+  }
 }
 
 Vue.createApp(App).mount('#app')
